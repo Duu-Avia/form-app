@@ -22,6 +22,7 @@ export default function Home() {
   return (
     <div className="flex justify-center mt-[200px]">
       <MainBody currentStep={currentStep} setCurrentStep={setCurrentStep} />
+      hi
     </div>
   );
 }
