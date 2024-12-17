@@ -6,7 +6,6 @@ import { useState } from "react";
 
 const MainBody = ({ currentStep, setCurrentStep }) => {
   if (currentStep === 1) {
-    console.log("kdfjkdjf");
     return <STEPONE setCurrentStep={setCurrentStep} />;
   }
   if (currentStep === 2) {
