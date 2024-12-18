@@ -1,6 +1,16 @@
 import React from "react";
 
-export function STEPONE({ currentStep, setCurrentStep }) {
+export function STEPONE({ currentStep, setCurrentStep, form, onChange, }) {
+
+    const errorRegex = /[1234567890!@#$%^&*()_+{}|:"<>?[',.]/
+
+  const valdationCheck =(field, message)=>{
+    if(errorRegex.test(form[field])){
+      return <div className="text-[red]">{message}</div>
+    }
+
+  }
+
   return (
     <div id="container" className="bg-white w-[480px] h-[655px] rounded-[8px] ">
       <div className="ml-[32px] mt-[32px]">
@@ -15,26 +25,40 @@ export function STEPONE({ currentStep, setCurrentStep }) {
         </div>
 
         <div id="inputContainer" className="mb-[162px]">
-          <div>First name</div>
+          <form>
+          <label>First name</label>
           <input
+            id="firstName"
             className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="Placeholder"
+            placeholder="First name"
             type="text"
+            value={form.firstName}
+            onChange={onChange}
           ></input>
-          <div>Last name</div>
+          <div>{valdationCheck('firstName', 'Please provide a valid first name')}</div>
+          <label>Last name</label>
           <input
+            id="lastName"
             className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="Placeholder"
+            placeholder="Last name"
             type="text"
+            value={form.lastName}
+            onChange={onChange}
           ></input>
-          <div>Username</div>
-          <input
-            className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="Placeholder"
-            type="text"
-          ></input>
-        </div>
 
+          <div>{valdationCheck('lastName', 'Please provide a valid last name')}</div>
+          <label>Username </label>
+          <input
+            id="userName"
+            className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
+            placeholder="Username<"
+            type="text"
+            value={form.userName}
+            onChange={onChange}
+          ></input>
+            </form>
+        </div>
+      
         <button
           onClick={() => {
             setCurrentStep(2);

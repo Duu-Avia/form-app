@@ -1,6 +1,6 @@
 import React from "react";
 
-export function STEPTWO() {
+export function STEPTWO({setCurrentStep}) {
   return (
     <div id="container" className="bg-white w-[480px] h-[655px] rounded-[8px] ">
       <div className="ml-[32px] mt-[32px]">
@@ -41,7 +41,9 @@ export function STEPTWO() {
           ></input>
         </div>
         <div className="flex">
-          <button className="bg-[#D6D8DB] pt-[10px] pb-[10px] pl-[12px] pr-[12px] w-[60%] h-[44px] rounded-[6px]">
+          <button  onClick={() => {
+            setCurrentStep(3);
+          }} className="bg-[#D6D8DB] pt-[10px] pb-[10px] pl-[12px] pr-[12px] w-[60%] h-[44px] rounded-[6px]">
             Continue 1/3
           </button>
           <button className="bg-[#D6D8DB] pt-[10px] pb-[10px] pl-[12px] pr-[12px] w-[40%] h-[44px] rounded-[6px]">
