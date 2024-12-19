@@ -7,6 +7,7 @@ export function STEPONE({ currentStep, setCurrentStep, form, onChange, }) {
   const valdationCheck =(field, message)=>{
     if(errorRegex.test(form[field])){
       return <div className="text-[red]">{message}</div>
+    
     }
 
   }
