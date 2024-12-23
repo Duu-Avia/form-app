@@ -1,16 +1,11 @@
 import React from "react";
+import { validationCheck } from "./utils/validationone";
 
-export function STEPONE({ currentStep, setCurrentStep, form, onChange, }) {
-
-    const errorRegex = /[1234567890!@#$%^&*()_+{}|:"<>?[',.]/
-
-  const valdationCheck =(field, message)=>{
-    if(errorRegex.test(form[field])){
-      return <div className="text-[red]">{message}</div>
-    
-    }
-
-  }
+export function StepOne({ currentStep, setCurrentStep, form, onChange, errors, setErrors}) {
+const {isValid} = validationCheck
+if(isValid === true){
+  
+}
 
   return (
     <div id="container" className="bg-white w-[480px] h-[655px] rounded-[8px] ">
@@ -36,7 +31,7 @@ export function STEPONE({ currentStep, setCurrentStep, form, onChange, }) {
             value={form.firstName}
             onChange={onChange}
           ></input>
-          <div>{valdationCheck('firstName', 'Please provide a valid first name')}</div>
+          <div className="text-[red]">{errors.firstName}</div>
           <label>Last name</label>
           <input
             id="lastName"
@@ -46,8 +41,7 @@ export function STEPONE({ currentStep, setCurrentStep, form, onChange, }) {
             value={form.lastName}
             onChange={onChange}
           ></input>
-
-          <div>{valdationCheck('lastName', 'Please provide a valid last name')}</div>
+          <div className="text-[red]">{errors.lastName}</div>  
           <label>Username </label>
           <input
             id="userName"
@@ -57,14 +51,20 @@ export function STEPONE({ currentStep, setCurrentStep, form, onChange, }) {
             value={form.userName}
             onChange={onChange}
           ></input>
+          <div className="text-[red]">{errors.userName}</div>
             </form>
         </div>
       
-        <button
+        <button disabled={!form.userName || !form.lastName || !form.firstName}
           onClick={() => {
-            setCurrentStep(2);
+            const {validErrors, isValid} = validationCheck(form)
+            setErrors(validErrors)
+            if(isValid){
+              setCurrentStep(2);
+            }
+           console.log(isValid)
           }}
-          className="bg-[#D6D8DB] pt-[10px] pb-[10px] pl-[12px] pr-[12px] w-[416px] h-[44px] rounded-[6px]"
+          className="disabled:bg-[#D6D8DB] bg-[#202124] text-[#FFFFFF] pt-[10px] pb-[10px] pl-[12px] pr-[12px] w-[416px] h-[44px] rounded-[6px]"
         >
           Continue 1/3
         </button>

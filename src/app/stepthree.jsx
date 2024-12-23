@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 import Image from "next/image";
-export function STEPTHREE({ currentStep, setCurrentStep, form, onChange }) {
+
+
+
+
+export function StepThree({ currentStep, setCurrentStep, form, onChange }) {
   const [imageDrop, setImageDrop] = useState(null);
   const handleImage = (acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -26,6 +30,7 @@ export function STEPTHREE({ currentStep, setCurrentStep, form, onChange }) {
 
         <div id="inputContainer" className="mb-[162px]">
           <form>
+            
             <Dropzone onDrop={handleImage}>
               {({ getRootProps, getInputProps }) => (
                 <div
@@ -36,8 +41,8 @@ export function STEPTHREE({ currentStep, setCurrentStep, form, onChange }) {
                   {imageDrop ? (
                     <Image
                       src={imageDrop}
-                      width={100}
-                      height={100}
+                      width={400}
+                      height={300}
                       alt="Image"
                     />
                   ) : (

@@ -1,31 +1,35 @@
 "use client";
-import { STEPONE } from "./stepone";
-import { STEPTWO } from "./steptwo";
-import { STEPTHREE } from "./stepthree";
+import { StepOne,  } from "./stepone";
+import { StepTwo } from "./steptwo";
+import { StepThree } from "./stepthree";
 import { useState } from "react";
 
-const MainBody = ({ currentStep, setCurrentStep, form, onChange }) => {
+const MainBody = ({ currentStep, setCurrentStep, form, onChange, errors, setErrors }) => {
   if (currentStep === 1) {
     return (
-      <STEPONE
+      <StepOne
         form={form}
         onChange={onChange}
         setCurrentStep={setCurrentStep}
+        errors={errors}
+        setErrors={setErrors}
       />
     );
   }
   if (currentStep === 2) {
     return (
-      <STEPTWO
+      <StepTwo
         form={form}
         onChange={onChange}
         setCurrentStep={setCurrentStep}
+        errors={errors}
+        setErrors={setErrors}
       />
     );
   }
   if (currentStep === 3) {
     return (
-      <STEPTHREE
+      <StepThree
         form={form}
         onChange={onChange}
         setCurrentStep={setCurrentStep}
@@ -40,8 +44,22 @@ export default function Home() {
     firstName: "",
     lastName: "",
     userName: "",
+    email: "",
+    phoneNumber:"",
+    password:"",
+    confirmPassword:""
+
   });
-  console.log(form);
+  const [errors, setErrors] = useState ({
+   firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber:"",
+    password:"",
+    confirmPassword:""
+
+  })
+  
   const onChange = (e) => {
     const idTaker = e.target.id;
     const newValue = { ...form, [idTaker]: e.target.value };
@@ -55,6 +73,8 @@ export default function Home() {
         setCurrentStep={setCurrentStep}
         form={form}
         onChange={onChange}
+        errors={errors}
+        setErrors={setErrors}
       />
     </div>
   );
