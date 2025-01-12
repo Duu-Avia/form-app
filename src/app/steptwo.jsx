@@ -1,5 +1,5 @@
 import React from "react";
-import { validationCheckTwo } from "./utils/validationtwo";
+import { validationCheckTwo } from "./utils/validationone";
 import {page} from "./page"
 
 
@@ -25,7 +25,7 @@ export function StepTwo({currentStep, setCurrentStep, form, onChange, errors, se
           <input
           id="email"
             className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="Placeholder"
+            placeholder="Enter the email"
             type="text"
             onChange={onChange}
             value={form.email}
@@ -36,7 +36,7 @@ export function StepTwo({currentStep, setCurrentStep, form, onChange, errors, se
           <input
             id="phoneNumber"
             className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="Placeholder"
+            placeholder="Enter the phone number"
             type="text"
             onChange={onChange}
             value={form.phoneNumber}
@@ -47,8 +47,8 @@ export function StepTwo({currentStep, setCurrentStep, form, onChange, errors, se
           <input
             id="password"
             className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="Placeholder"
-            type="text"
+            placeholder="Enter the password"
+            type="password"
             onChange={onChange}
             value={form.password}
           ></input>
@@ -58,8 +58,8 @@ export function StepTwo({currentStep, setCurrentStep, form, onChange, errors, se
           <input
             id="confirmPassword"
             className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="Placeholder"
-            type="text"
+            placeholder="Enter the password"
+            type="password"
             onChange={onChange}
             value={form.confirmPassword}
           ></input>

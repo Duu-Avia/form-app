@@ -3,9 +3,13 @@ import { StepOne,  } from "./stepone";
 import { StepTwo } from "./steptwo";
 import { StepThree } from "./stepthree";
 import { useState } from "react";
+import { StepFour } from "./stepfour";
 
 const MainBody = ({ currentStep, setCurrentStep, form, onChange, errors, setErrors }) => {
-  if (currentStep === 1) {
+  if (currentStep === 1
+
+
+  ) {
     return (
       <StepOne
         form={form}
@@ -35,6 +39,12 @@ const MainBody = ({ currentStep, setCurrentStep, form, onChange, errors, setErro
         setCurrentStep={setCurrentStep}
       />
     );
+  }
+  
+  if (currentStep === 4){
+    return (
+      <StepFour form={form} onChange={onChange} setCurrentStep={setCurrentStep}/>
+    )
   }
 };
 

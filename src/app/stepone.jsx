@@ -1,5 +1,5 @@
 import React from "react";
-import { validationCheck } from "./utils/validationone";
+import { validationCheck, validationCheckTwo } from "./utils/validationone";
 
 export function StepOne({ currentStep, setCurrentStep, form, onChange, errors, setErrors}) {
 const {isValid} = validationCheck
@@ -26,7 +26,7 @@ if(isValid === true){
           <input
             id="firstName"
             className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="First name"
+            placeholder="Enter the first name"
             type="text"
             value={form.firstName}
             onChange={onChange}
@@ -36,7 +36,7 @@ if(isValid === true){
           <input
             id="lastName"
             className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="Last name"
+            placeholder="Enter the email last name"
             type="text"
             value={form.lastName}
             onChange={onChange}
@@ -46,7 +46,7 @@ if(isValid === true){
           <input
             id="userName"
             className="border-[1px] pt-[12px] pb-[12px] rounded-[8px] w-[416px]"
-            placeholder="Username<"
+            placeholder="Enter the email username<"
             type="text"
             value={form.userName}
             onChange={onChange}
